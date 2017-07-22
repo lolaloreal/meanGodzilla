@@ -1,0 +1,11 @@
+<!-- //this is how angular does singular page applications
+//does not reload the webpage, just changes the active component of your app -->
+
+<a [routerLink]="['/login']">Log In</a> | <a [routerLink]="['/dashboard']">Dashboard</a>
+
+| <a [routerLink]="['/trivia/add']">Add a Question</a> | <a [routerLink]="['/list']">List triva stuff</a>
+
+
+
+<router-outlet></router-outlet>
+<!-- //ALWAYS CALLED THIS gets replaced by your components -->

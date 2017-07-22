@@ -1,0 +1,24 @@
+<h1>LOG IN</h1>
+
+<form (submit)="login()" #formData="ngForm">
+    <p>Name: <input type="text" name="name" [(ngModel)]="new_user.name" minlength="3" #name="ngModel" required></p>
+        <div class="erros" *ngIf="name.error && (name.dirty || name.touch)">
+            <span *ngIf='name.errors.required'>Name is required</span>
+            <span *ngIf='name.errors.minlength'>Name must be 3 characters long</span>
+        </div>
+        <input type="submit" value="Log In" [disabled]="!formData.valid">
+</form>
+
+{{ new_user | json }}
+
+<!-- //# are used for vailadations always must {formData}="ngForm"
+
+//validity: to make something require validations #name='ngModel' must match the name of the input it is located in || when ngModel is on the right side it is only for validations
+
+//class errors checks if there are errors in the name && if it is dirty: typed and deleted || (or) if it is touch:
+
+//then check if
+
+// use this for bulding and testing{{ new_user | json }}
+
+//two way binding [(ngModel)]={{TheThingWeMadeInTheComponent}}.{{theProperty}} -->

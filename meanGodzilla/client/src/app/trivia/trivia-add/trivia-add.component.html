@@ -1,0 +1,33 @@
+
+<p>
+  trivia-add works!
+</p>
+<div class="add-question">
+    <form (submit)="addTrivia()" #formData="ngForm">
+        <p>Question: <textarea name="question" rows="8" cols="80" [(ngModel)]="new_trivia.question" #question='ngModel' required minlength="15"></textarea></p>
+        <div class='errors' *ngIf='question.errors && (question.dirty || question.touch)'>
+            <span *ngIf='question.errors.required'>Question is required</span>
+        </div>
+
+        <p>Correct Answer: <input type="text" name="correctA" [(ngModel)]="new_trivia.correctA" #correctA='ngModel' required></p>
+        <div class='errors' *ngIf='correctA.errors && (correctA.dirty || correctA.touch)'>
+            <span *ngIf='correctA.errors.required'>Correct Answer is required</span>
+        </div>
+
+        <p>Fake Answer 1: <input type="text" name="fakeOneA" [(ngModel)]="new_trivia.fakeOneA" #fakeOneA='ngModel' required></p>
+        <div class='errors' *ngIf='fakeOneA.errors && (fakeOneA.dirty || fakeOneA.touch)'>
+            <span *ngIf='fakeOneA.errors.required'>Fake Answer 1 is required</span>
+        </div>
+
+        <p>Fake Answer 2: <input type="text" name="fakeTwoA" [(ngModel)]="new_trivia.fakeTwoA" #fakeTwoA='ngModel' required></p>
+        <div class='errors' *ngIf='fakeTwoA.errors && (fakeTwoA.dirty || fakeTwoA.touch)'>
+            <span *ngIf='fakeTwoA.errors.required'>Fake Answer 2 is required</span>
+        </div>
+
+        <button [routerLink]="['/dashboard']">Cancel</button>
+
+        <input type="submit" name="addQ" value="Add Question" [disabled]="!formData.valid">
+    </form>
+</div>
+<router-outlet></router-outlet>
+{{new_trivia | json}}

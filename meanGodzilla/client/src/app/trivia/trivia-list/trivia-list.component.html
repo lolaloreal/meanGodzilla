@@ -1,0 +1,31 @@
+<div class="trivia-list">
+<p>
+  trivia-list works!
+</p>
+<h1> YELLOW {{ current_user.name }}</h1>
+<!-- <a [routerLink]="['/dashboard']">Dashboard</a>
+
+<a [routerLink]="['/add']">Add a Question</a> -->
+
+<button [routerLink]="['/play']">PLAY!!!</button>
+
+<hr>
+<input type='text' name='search_text' [(ngModel)]='search_text'>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Score</th>
+		<th>Percentage</th>
+	</tr>
+	<tr *ngFor="let trivia of trivia_list">
+		<td>{{ trivia.question }}</td>
+		<td>{{ trivia.score }}</td>
+		<td>{{ trivia.rating }}</td>
+	</tr>
+     <!-- | filter: search_text | sort:'percentage'  -->
+</table>
+
+{{ trivia_list | json }}
+
+<router-outlet></router-outlet>
+</div>
